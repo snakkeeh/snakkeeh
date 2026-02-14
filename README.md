@@ -47,6 +47,12 @@
 </p>
 ---
 
+## 🧳 Profile Views
+
+<img
+  src="https://komarev.com/ghpvc/?username=snakkeyy&style=flat-square&color=blue"
+/>
+
 ✨ Quote
 
 > “Code is like humor. When you have to explain it, it’s bad.”
