@@ -29,7 +29,12 @@
 
 🔧 Backend & Tools
 
- 
+ ## 📈 GitHub Stats
+ <img
+    src="https://github-readme-stats-fast.vercel.app/api/top-langs?username=snakkeyy&theme=dark"
+    width="420"
+  />
+</p>
 
 
 ---
