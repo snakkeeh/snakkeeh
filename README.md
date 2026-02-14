@@ -16,18 +16,11 @@
 
 
 
----
--🛠️ Tech Stack
+## 🚀 Tech Stack
 
-💻 Languages
-
- 
-
-🌐 Frontend
-
- 
-
-🔧 Backend & Tools
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=js,python,html,css,nodejs,java,kotlin,mongodb,mysql,git&theme=dark" />
+</p>
 
  ## 📈 GitHub Stats
  <img
