@@ -29,6 +29,12 @@
   />
 </p>
 
+<p align="center">
+  <! -- Spotify Widget (Ganti USERNAME sama username Spotify lo) -->
+  <a href="https://spotify-readme-nine.vercel.app/api?theme=dark&user=USERNAME" target="_blank">
+    <img src="https://spotify-readme-nine.vercel.app/api?theme=dark&user=USERNAME" alt="Lagi Dengerin di Spotify" />
+  </a>
+</p>
 
 ---
 
