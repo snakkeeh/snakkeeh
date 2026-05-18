@@ -4,7 +4,7 @@
 <h3 align="center">A Passionate Developer</h3>
 ---
 
-## 🚀 Tech Stack
+## Tech Stack
 
 <p align="center">
   <img src="https://skillicons.dev/icons?i=js,python,html,css,nodejs,java,kotlin,mongodb,mysql,git&theme=dark" />
@@ -22,7 +22,7 @@
 ## Most Used Languages
 ![Top Languages](https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=snakkeeh&theme=radical)
 
-🌍 Connect With Me
+# Connect With Me
 
 <p align="center">
   <a href="https://github.com/snakkeeh">
@@ -37,11 +37,6 @@
 </p>
 ---
 
-## 🧳 Profile Views
-
-<img
-  src="https://komarev.com/ghpvc/?username=snakkeeh&style=flat-square&color=blue"
-/>
 
 ✨ Quote
 
