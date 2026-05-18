@@ -4,29 +4,10 @@
 <h3 align="center">A Passionate Developer</h3>
 ---
 
-👨‍💻 About Me
-
-🔭 I’m currently working on Discord Music Bot
-
-🌱 I’m learning Advanced JavaScript, Backend, and System Design
-
-💬 Ask me about JavaScript, Node.js, Python
-
-⚡ Fun fact: I love building clean UIs and solving bugs at 2 AM 😄
-
-
-
 ## 🚀 Tech Stack
 
 <p align="center">
   <img src="https://skillicons.dev/icons?i=js,python,html,css,nodejs,java,kotlin,mongodb,mysql,git&theme=dark" />
-</p>
-
- ## 📈 GitHub Stats
- <img
-    src="https://github-readme-stats-fast.vercel.app/api/top-langs?username=snakkeyy&theme=dark"
-    width="420"
-  />
 </p>
 
 <p align="center">
@@ -38,14 +19,17 @@
 
 ---
 
+## Most Used Languages
+![Top Languages](https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=snakkeeh&theme=radical)
+
 🌍 Connect With Me
 
 <p align="center">
-  <a href="https://github.com/snakkeyy">
+  <a href="https://github.com/snakkeeh">
     <img src="https://img.shields.io/badge/GitHub-black?style=for-the-badge&logo=github" />
   </a>
-  <a href="https://linkedin.com/in/your-linkedin">
-    <img src="https://img.shields.io/badge/LinkedIn-black?style=for-the-badge&logo=linkedin" />
+  <a href="https://discord.gg/user/.snakke.">
+    <img src="https://img.shields.io/badge/Discord-black?style=for-the-badge&logo=discord" />
   </a>
   <a href="mailto:snakke.gg@gmail.com">
     <img src="https://img.shields.io/badge/Email-black?style=for-the-badge&logo=gmail" />
@@ -56,7 +40,7 @@
 ## 🧳 Profile Views
 
 <img
-  src="https://komarev.com/ghpvc/?username=snakkeyy&style=flat-square&color=blue"
+  src="https://komarev.com/ghpvc/?username=snakkeeh&style=flat-square&color=blue"
 />
 
 ✨ Quote
