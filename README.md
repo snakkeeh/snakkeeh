@@ -45,15 +45,10 @@ I believe great software is born from clean architecture, attention to detail, a
 
 ---
 
-### 📊 GitHub Activity
+## Philosophy
 
-<div align="center">
-
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=snakkeeh&layout=compact&theme=tokyonight&hide_border=true&include_all_commits=true&count_private=true&hide=jupyter%20notebook)
-
-![Stats](https://github-readme-stats.vercel.app/api?username=snakkeeh&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true&count_private=true&rank_icon=github)
-
-</div>
+> [!IMPORTANT]
+> Great software is not just functional — it is intuitive, maintainable, and built to last.
 
 ---
 
