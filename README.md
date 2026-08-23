@@ -38,7 +38,7 @@ I believe great software is born from clean architecture, attention to detail, a
 <div align="center">
   <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=19&duration=3500&pause=1000&color=EF4444&center=true&vCenter=true&width=760&lines=%22Speed+without+stability+is+just+debt.%22;%22If+it+works+for+2M%2C+it+works.%22;%22Ship+it.+Measure+it.+Fix+it.%22" />
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=snakkeeh&bg_color=0b0f14&color=ffd1d1&line=ef4444&point=ffffff&area_color=ef4444&area=true&hide_border=true&custom_title=SNAKKEEH%20%2F%2F%20ACTIVITY" width="100%" />
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=knownasrazi&bg_color=0b0f14&color=ffd1d1&line=ef4444&point=ffffff&area_color=ef4444&area=true&hide_border=true&custom_title=SNAKKEEH%20%2F%2F%20ACTIVITY" width="100%" />
 
 <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=snakkeeh&theme=github_dark" width="100%" />
 
