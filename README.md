@@ -37,7 +37,7 @@ For me, software isn't just about making things work—it's an art form. I truly
   <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=19&duration=3500&pause=1000&color=EF4444&center=true&vCenter=true&width=760&lines=%22Speed+without+stability+is+just+debt.%22;%22If+it+works+for+2M%2C+it+works.%22;%22Ship+it.+Measure+it.+Fix+it.%22" />
 
 
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=snakkeehh&theme=github_dark" width="100%" />
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=snakkeeh&theme=github_dark" width="100%" />
 
 </div>
 
