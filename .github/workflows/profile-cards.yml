@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      
+
     steps:
       - uses: actions/checkout@v4
 
@@ -33,17 +33,10 @@ jobs:
                 following { totalCount }
                 repositories(first: 100, ownerAffiliations: OWNER, isFork: false) {
                   totalCount
-                  nodes {
-                    stargazerCount
-                    languages(first: 10, orderBy: {field: SIZE, direction: DESC}) {
-                      edges {
-                        size
-                        node { name color }
-                      }
-                    }
-                  }
+                  nodes { stargazerCount }
                 }
                 contributionsCollection {
+                  totalCommitContributions
                   contributionCalendar {
                     totalContributions
                     weeks {
@@ -51,6 +44,12 @@ jobs:
                         contributionCount
                         date
                       }
+                    }
+                  }
+                  commitContributionsByRepository(maxRepositories: 100) {
+                    contributions { totalCount }
+                    repository {
+                      primaryLanguage { name color }
                     }
                   }
                 }
@@ -90,7 +89,6 @@ jobs:
                   console.error("GraphQL Errors:", response.errors);
                   process.exit(1);
                 }
-
                 if (!response.data || !response.data.viewer) {
                   console.error("Invalid response payload:", body);
                   process.exit(1);
@@ -98,104 +96,130 @@ jobs:
 
                 const viewer = response.data.viewer;
                 const search = response.data.search || { issueCount: 0 };
-                const calendar = viewer.contributionsCollection.contributionCalendar;
+                const cc = viewer.contributionsCollection;
+                const calendar = cc.contributionCalendar;
 
-                const totalCommits = calendar.totalContributions;
-                const totalRepos   = viewer.repositories.totalCount;
-                const followers    = viewer.followers.totalCount;
-                const following    = viewer.following.totalCount;
-                const totalIssues  = search.issueCount;
-
-                // --- REAL stars + languages aggregation ---
+                // ---------- Stats ----------
                 let totalStars = 0;
-                const langTotals = {};
-                (viewer.repositories.nodes || []).forEach(repo => {
-                  totalStars += repo.stargazerCount || 0;
-                  const edges = (repo.languages && repo.languages.edges) || [];
-                  edges.forEach(edge => {
-                    const name  = edge.node.name;
-                    const color = edge.node.color || "#8b949e";
-                    if (!langTotals[name]) langTotals[name] = { size: 0, color };
-                    langTotals[name].size += edge.size;
-                  });
-                });
+                (viewer.repositories.nodes || []).forEach(r => totalStars += r.stargazerCount || 0);
 
-                const sortedLangs = Object.entries(langTotals)
-                  .sort((a, b) => b[1].size - a[1].size)
-                  .slice(0, 4);
+                const stats = {
+                  totalCommits: (cc.totalCommitContributions || 0).toLocaleString(),
+                  totalRepos:   viewer.repositories.totalCount,
+                  followers:    viewer.followers.totalCount.toLocaleString(),
+                  following:    viewer.following.totalCount.toLocaleString(),
+                  totalStars:   totalStars.toLocaleString(),
+                  totalIssues:  (search.issueCount || 0).toLocaleString()
+                };
 
-                const totalLangSize = sortedLangs.reduce((s, [, v]) => s + v.size, 0) || 1;
-                const langs = sortedLangs.map(([name, v]) => ({
-                  name,
-                  color: v.color,
-                  pct: Math.round((v.size / totalLangSize) * 100)
-                }));
-
-                // --- REAL commit graph from contribution weeks ---
+                // ---------- Contribution graph (fully real) ----------
                 const weeks = calendar.weeks || [];
                 const weeklyTotals = weeks.map(w =>
                   (w.contributionDays || []).reduce((s, d) => s + (d.contributionCount || 0), 0)
                 );
-                const maxWeekly = Math.max(1, ...weeklyTotals);
 
-                const graphX = 10, graphY = 8, graphW = 438, graphH = 50;
-                const points = weeklyTotals.map((val, i) => {
-                  const x = graphX + (weeklyTotals.length > 1
-                    ? (i / (weeklyTotals.length - 1)) * graphW
-                    : 0);
-                  const y = graphY + graphH - (val / maxWeekly) * graphH;
-                  return { x, y };
-                });
+                const GX = 10, GY = 8, GW = 430, GH = 46;
+                const N = weeklyTotals.length;
+                const maxVal = Math.max(1, ...weeklyTotals);
+
+                const points = weeklyTotals.map((v, i) => ({
+                  x: GX + (N > 1 ? (i / (N - 1)) * GW : 0),
+                  y: GY + GH - (v / maxVal) * GH
+                }));
 
                 const linePath = points.length
                   ? points.map((p, i) =>
                       (i === 0 ? "M" : "L") + p.x.toFixed(1) + " " + p.y.toFixed(1)
                     ).join(" ")
-                  : "M10 58 L448 58";
+                  : "";
                 const areaPath = points.length
-                  ? linePath + " L" + points[points.length - 1].x.toFixed(1) + " 58 L" + points[0].x.toFixed(1) + " 58 Z"
-                  : "M10 58 L448 58 Z";
-                const lastPoint = points.length ? points[points.length - 1] : { x: 448, y: 58 };
+                  ? linePath +
+                    " L" + points[points.length - 1].x.toFixed(1) + " " + (GY + GH) +
+                    " L" + points[0].x.toFixed(1) + " " + (GY + GH) + " Z"
+                  : "";
+                const lastPoint = points.length ? points[points.length - 1] : { x: GX, y: GY + GH };
 
-                // --- REAL month labels from contribution dates ---
+                // Month labels placed at the first week each month starts
                 const monthNames = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-                const labelIndices = [];
-                if (weeks.length > 0) {
-                  const step = Math.max(1, Math.floor((weeks.length - 1) / 5));
-                  for (let i = 0; i <= weeks.length - 1; i += step) labelIndices.push(i);
-                  if (labelIndices[labelIndices.length - 1] !== weeks.length - 1) {
-                    labelIndices.push(weeks.length - 1);
+                const rawLabels = [];
+                let lastMonth = -1;
+                weeks.forEach((w, wi) => {
+                  const days = w.contributionDays || [];
+                  if (!days.length) return;
+                  const first = days[0].date;
+                  if (!first) return;
+                  const m = new Date(first + "T00:00:00Z").getUTCMonth();
+                  if (m !== lastMonth) {
+                    const x = GX + (N > 1 ? (wi / (N - 1)) * GW : 0);
+                    rawLabels.push({ x, label: monthNames[m] });
+                    lastMonth = m;
+                  }
+                });
+                // De-overlap: min 32px gap
+                const dateLabels = [];
+                let prevX = -Infinity;
+                rawLabels.forEach(l => {
+                  if (l.x - prevX >= 32) {
+                    dateLabels.push({ x: l.x.toFixed(0), label: l.label });
+                    prevX = l.x;
+                  }
+                });
+
+                // ---------- Languages weighted by commits ----------
+                const langMap = {};
+                let langTotal = 0;
+                (cc.commitContributionsByRepository || []).forEach(entry => {
+                  const count = (entry.contributions && entry.contributions.totalCount) || 0;
+                  const pl = entry.repository && entry.repository.primaryLanguage;
+                  if (!pl || !pl.name || count === 0) return;
+                  const key = pl.name;
+                  if (!langMap[key]) langMap[key] = { count: 0, color: pl.color || "#8b949e" };
+                  langMap[key].count += count;
+                  langTotal += count;
+                });
+
+                const allLangs = Object.entries(langMap).sort((a, b) => b[1].count - a[1].count);
+                let displayLangs = [];
+                if (langTotal === 0) {
+                  displayLangs = [{ name: "No commits yet", color: "#6e7681", count: 0, pct: 100 }];
+                } else {
+                  const top = allLangs.slice(0, 4);
+                  const rest = allLangs.slice(4);
+                  displayLangs = top.map(([name, v]) => ({
+                    name,
+                    color: v.color,
+                    count: v.count,
+                    pct: (v.count / langTotal) * 100
+                  }));
+                  if (rest.length > 0) {
+                    const restCount = rest.reduce((s, [, v]) => s + v.count, 0);
+                    displayLangs.push({
+                      name: "Other",
+                      color: "#6e7681",
+                      count: restCount,
+                      pct: (restCount / langTotal) * 100
+                    });
                   }
                 }
-                const dateLabels = labelIndices.slice(0, 6).map(i => {
-                  const day = weeks[i] && weeks[i].contributionDays && weeks[i].contributionDays[0];
-                  const d = day ? new Date(day.date) : null;
-                  const label = d ? monthNames[d.getUTCMonth()] : "";
-                  const x = graphX + (weeks.length > 1
-                    ? (i / (weeks.length - 1)) * graphW
-                    : 0);
-                  return { x: x.toFixed(0), label };
+
+                // Language bar segments (450px wide)
+                const barW = 450;
+                let cursor = 0;
+                const langBars = displayLangs.map(l => {
+                  const w = (l.pct / 100) * barW;
+                  const seg = { x: cursor, width: w, color: l.color };
+                  cursor += w;
+                  return seg;
                 });
 
-                // --- REAL language bar segments ---
-                const langBarWidth = 450;
-                let langBarX = 0;
-                const langBars = langs.map(l => {
-                  const w = (l.pct / 100) * langBarWidth;
-                  const bar = { x: langBarX, width: w, color: l.color };
-                  langBarX += w;
-                  return bar;
-                });
+                // Legend: 4 per row, rounded %
+                const legendItems = displayLangs.map(l => ({
+                  name: l.name,
+                  color: l.color,
+                  pct: Math.round(l.pct)
+                }));
 
-                generateSvg({
-                  totalCommits: totalCommits.toLocaleString(),
-                  totalRepos:    totalRepos,
-                  followers:     followers.toLocaleString(),
-                  following:     following.toLocaleString(),
-                  totalStars:    totalStars.toLocaleString(),
-                  totalIssues:   totalIssues.toLocaleString()
-                }, { linePath, areaPath, lastPoint, dateLabels, langs, langBars });
-
+                generateSvg(stats, { linePath, areaPath, lastPoint, dateLabels, langBars, legendItems });
               } catch (e) {
                 console.error("Parse error:", e, body);
                 process.exit(1);
@@ -212,20 +236,20 @@ jobs:
           req.end();
 
           function generateSvg(stats, chart) {
-            const langLegend = chart.langs.map((l, i) => {
+            const langBarRects = chart.langBars.map(b =>
+              `<rect x="${b.x.toFixed(2)}" y="0" width="${b.width.toFixed(2)}" height="10" fill="${b.color}"/>`
+            ).join("");
+
+            const langLegend = chart.legendItems.map((l, i) => {
               const col = i % 4;
               const row = Math.floor(i / 4);
-              const x = col * 110;
+              const x = col * 112;
               const y = row * 20;
               return `<g transform="translate(${x} ${y})">
                 <circle cx="4" cy="4" r="3.5" fill="${l.color}"/>
                 <text x="12" y="8" class="language">${l.name} <tspan class="percentage">${l.pct}%</tspan></text>
               </g>`;
             }).join("");
-
-            const langBarRects = chart.langBars.map(b =>
-              `<rect x="${b.x.toFixed(1)}" y="0" width="${b.width.toFixed(1)}" height="10" fill="${b.color}"/>`
-            ).join("");
 
             const dateLabelEls = chart.dateLabels.map(d =>
               `<text x="${d.x}" y="68" class="date">${d.label}</text>`
@@ -284,8 +308,8 @@ jobs:
                 <text x="12" y="16" class="label">Total Issues</text>
                 <text x="12" y="32" class="stat-value">${stats.totalIssues}</text>
               </g>
-              <text x="25" y="198" class="section-title">Commit Activity</text>
-              <text x="140" y="198" class="label">Last 12 months</text>
+              <text x="25" y="198" class="section-title">Contribution Activity</text>
+              <text x="160" y="198" class="label">Last 12 months</text>
               <g transform="translate(25 206)">
                 <rect x="0" y="0" width="450" height="72" rx="7" fill="#161b22" stroke="#30363d"/>
                 <line x1="10" y1="16" x2="440" y2="16" stroke="#21262d" stroke-width="1"/>
@@ -298,6 +322,7 @@ jobs:
                 ${dateLabelEls}
               </g>
               <text x="25" y="302" class="section-title">Most Used Languages</text>
+              <text x="165" y="302" class="label">by commits (last 12 months)</text>
               <g transform="translate(25 311)">
                 <g clip-path="url(#languageBarClip)">
                   ${langBarRects}
