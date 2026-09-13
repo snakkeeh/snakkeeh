@@ -24,7 +24,7 @@
     <g transform="translate(25 44)">
       <rect x="0" y="0" width="215" height="40" rx="8" fill="#161b22" stroke="#30363d"/>
       <text x="12" y="16" class="label">Total Commits</text>
-      <text x="12" y="32" class="stat-value">3,790</text>
+      <text x="12" y="32" class="stat-value">3,767</text>
     </g>
     <g transform="translate(260 44)">
       <rect x="0" y="0" width="215" height="40" rx="8" fill="#161b22" stroke="#30363d"/>
@@ -51,38 +51,36 @@
       <text x="12" y="16" class="label">Total Issues</text>
       <text x="12" y="32" class="stat-value">2</text>
     </g>
-    <text x="25" y="198" class="section-title">Commit Activity</text>
-    <text x="140" y="198" class="label">Last 12 months</text>
+    <text x="25" y="198" class="section-title">Contribution Activity</text>
+    <text x="160" y="198" class="label">Last 12 months</text>
     <g transform="translate(25 206)">
       <rect x="0" y="0" width="450" height="72" rx="7" fill="#161b22" stroke="#30363d"/>
       <line x1="10" y1="16" x2="440" y2="16" stroke="#21262d" stroke-width="1"/>
       <line x1="10" y1="32" x2="440" y2="32" stroke="#21262d" stroke-width="1"/>
       <line x1="10" y1="48" x2="440" y2="48" stroke="#21262d" stroke-width="1"/>
-      <path d="M10.0 58.0 L18.4 58.0 L26.8 58.0 L35.3 58.0 L43.7 58.0 L52.1 58.0 L60.5 58.0 L69.0 58.0 L77.4 58.0 L85.8 58.0 L94.2 58.0 L102.7 58.0 L111.1 57.9 L119.5 57.9 L127.9 58.0 L136.3 58.0 L144.8 58.0 L153.2 58.0 L161.6 57.9 L170.0 58.0 L178.5 57.9 L186.9 57.9 L195.3 58.0 L203.7 58.0 L212.2 57.9 L220.6 58.0 L229.0 58.0 L237.4 58.0 L245.8 58.0 L254.3 58.0 L262.7 58.0 L271.1 58.0 L279.5 58.0 L288.0 58.0 L296.4 58.0 L304.8 57.9 L313.2 58.0 L321.7 58.0 L330.1 58.0 L338.5 58.0 L346.9 58.0 L355.3 58.0 L363.8 58.0 L372.2 58.0 L380.6 58.0 L389.0 58.0 L397.5 58.0 L405.9 58.0 L414.3 58.0 L422.7 57.5 L431.2 57.3 L439.6 8.0 L448.0 39.4 L448.0 58 L10.0 58 Z" fill="url(#graphGradient)"/>
-      <path d="M10.0 58.0 L18.4 58.0 L26.8 58.0 L35.3 58.0 L43.7 58.0 L52.1 58.0 L60.5 58.0 L69.0 58.0 L77.4 58.0 L85.8 58.0 L94.2 58.0 L102.7 58.0 L111.1 57.9 L119.5 57.9 L127.9 58.0 L136.3 58.0 L144.8 58.0 L153.2 58.0 L161.6 57.9 L170.0 58.0 L178.5 57.9 L186.9 57.9 L195.3 58.0 L203.7 58.0 L212.2 57.9 L220.6 58.0 L229.0 58.0 L237.4 58.0 L245.8 58.0 L254.3 58.0 L262.7 58.0 L271.1 58.0 L279.5 58.0 L288.0 58.0 L296.4 58.0 L304.8 57.9 L313.2 58.0 L321.7 58.0 L330.1 58.0 L338.5 58.0 L346.9 58.0 L355.3 58.0 L363.8 58.0 L372.2 58.0 L380.6 58.0 L389.0 58.0 L397.5 58.0 L405.9 58.0 L414.3 58.0 L422.7 57.5 L431.2 57.3 L439.6 8.0 L448.0 39.4" fill="none" stroke="#f85149" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="448.0" cy="39.4" r="7" fill="#f85149" opacity="0.10"/>
-      <circle cx="448.0" cy="39.4" r="3.5" fill="#f85149"/>
-      <text x="10" y="68" class="date">Sep</text><text x="94" y="68" class="date">Nov</text><text x="178" y="68" class="date">Feb</text><text x="263" y="68" class="date">Apr</text><text x="347" y="68" class="date">Jun</text><text x="431" y="68" class="date">Aug</text>
+      <path d="M10.0 54.0 L18.3 54.0 L26.5 54.0 L34.8 54.0 L43.1 54.0 L51.3 54.0 L59.6 54.0 L67.9 54.0 L76.2 54.0 L84.4 54.0 L92.7 54.0 L101.0 54.0 L109.2 53.9 L117.5 53.9 L125.8 54.0 L134.0 54.0 L142.3 54.0 L150.6 54.0 L158.8 53.9 L167.1 54.0 L175.4 53.9 L183.7 53.9 L191.9 54.0 L200.2 54.0 L208.5 53.9 L216.7 54.0 L225.0 54.0 L233.3 54.0 L241.5 54.0 L249.8 54.0 L258.1 54.0 L266.3 54.0 L274.6 54.0 L282.9 54.0 L291.2 54.0 L299.4 53.9 L307.7 54.0 L316.0 54.0 L324.2 54.0 L332.5 54.0 L340.8 54.0 L349.0 54.0 L357.3 54.0 L365.6 54.0 L373.8 54.0 L382.1 54.0 L390.4 54.0 L398.7 54.0 L406.9 54.0 L415.2 53.6 L423.5 53.3 L431.7 8.0 L440.0 36.8 L440.0 54 L10.0 54 Z" fill="url(#graphGradient)"/>
+      <path d="M10.0 54.0 L18.3 54.0 L26.5 54.0 L34.8 54.0 L43.1 54.0 L51.3 54.0 L59.6 54.0 L67.9 54.0 L76.2 54.0 L84.4 54.0 L92.7 54.0 L101.0 54.0 L109.2 53.9 L117.5 53.9 L125.8 54.0 L134.0 54.0 L142.3 54.0 L150.6 54.0 L158.8 53.9 L167.1 54.0 L175.4 53.9 L183.7 53.9 L191.9 54.0 L200.2 54.0 L208.5 53.9 L216.7 54.0 L225.0 54.0 L233.3 54.0 L241.5 54.0 L249.8 54.0 L258.1 54.0 L266.3 54.0 L274.6 54.0 L282.9 54.0 L291.2 54.0 L299.4 53.9 L307.7 54.0 L316.0 54.0 L324.2 54.0 L332.5 54.0 L340.8 54.0 L349.0 54.0 L357.3 54.0 L365.6 54.0 L373.8 54.0 L382.1 54.0 L390.4 54.0 L398.7 54.0 L406.9 54.0 L415.2 53.6 L423.5 53.3 L431.7 8.0 L440.0 36.8" fill="none" stroke="#f85149" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="440.0" cy="36.8" r="7" fill="#f85149" opacity="0.10"/>
+      <circle cx="440.0" cy="36.8" r="3.5" fill="#f85149"/>
+      <text x="10" y="68" class="date">Sep</text><text x="68" y="68" class="date">Nov</text><text x="109" y="68" class="date">Dec</text><text x="142" y="68" class="date">Jan</text><text x="175" y="68" class="date">Feb</text><text x="208" y="68" class="date">Mar</text><text x="250" y="68" class="date">Apr</text><text x="283" y="68" class="date">May</text><text x="324" y="68" class="date">Jun</text><text x="357" y="68" class="date">Jul</text><text x="390" y="68" class="date">Aug</text><text x="432" y="68" class="date">Sep</text>
     </g>
     <text x="25" y="302" class="section-title">Most Used Languages</text>
+    <text x="165" y="302" class="label">by commits (last 12 months)</text>
     <g transform="translate(25 311)">
       <g clip-path="url(#languageBarClip)">
-        <rect x="0.0" y="0" width="225.0" height="10" fill="#3178c6"/><rect x="225.0" y="0" width="180.0" height="10" fill="#dea584"/><rect x="405.0" y="0" width="36.0" height="10" fill="#f1e05a"/><rect x="441.0" y="0" width="9.0" height="10" fill="#3572A5"/>
+        <rect x="0.00" y="0" width="437.82" height="10" fill="#f1e05a"/><rect x="437.82" y="0" width="11.70" height="10" fill="#3178c6"/><rect x="449.52" y="0" width="0.48" height="10" fill="#dea584"/>
       </g>
     </g>
     <g transform="translate(25 335)">
       <g transform="translate(0 0)">
-      <circle cx="4" cy="4" r="3.5" fill="#3178c6"/>
-      <text x="12" y="8" class="language">TypeScript <tspan class="percentage">50%</tspan></text>
-    </g><g transform="translate(110 0)">
-      <circle cx="4" cy="4" r="3.5" fill="#dea584"/>
-      <text x="12" y="8" class="language">Rust <tspan class="percentage">40%</tspan></text>
-    </g><g transform="translate(220 0)">
       <circle cx="4" cy="4" r="3.5" fill="#f1e05a"/>
-      <text x="12" y="8" class="language">JavaScript <tspan class="percentage">8%</tspan></text>
-    </g><g transform="translate(330 0)">
-      <circle cx="4" cy="4" r="3.5" fill="#3572A5"/>
-      <text x="12" y="8" class="language">Python <tspan class="percentage">2%</tspan></text>
+      <text x="12" y="8" class="language">JavaScript <tspan class="percentage">97%</tspan></text>
+    </g><g transform="translate(112 0)">
+      <circle cx="4" cy="4" r="3.5" fill="#3178c6"/>
+      <text x="12" y="8" class="language">TypeScript <tspan class="percentage">3%</tspan></text>
+    </g><g transform="translate(224 0)">
+      <circle cx="4" cy="4" r="3.5" fill="#dea584"/>
+      <text x="12" y="8" class="language">Rust <tspan class="percentage">0%</tspan></text>
     </g>
     </g>
   </svg>
