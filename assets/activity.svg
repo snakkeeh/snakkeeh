@@ -29,7 +29,7 @@
     <g transform="translate(260 44)">
       <rect x="0" y="0" width="215" height="40" rx="8" fill="#161b22" stroke="#30363d"/>
       <text x="12" y="16" class="label">Total Repos (Public &amp; Private)</text>
-      <text x="12" y="32" class="stat-value">18</text>
+      <text x="12" y="32" class="stat-value">10</text>
     </g>
     <g transform="translate(25 90)">
       <rect x="0" y="0" width="215" height="40" rx="8" fill="#161b22" stroke="#30363d"/>
@@ -44,12 +44,12 @@
     <g transform="translate(25 136)">
       <rect x="0" y="0" width="215" height="40" rx="8" fill="#161b22" stroke="#30363d"/>
       <text x="12" y="16" class="label">Total Stars</text>
-      <text x="12" y="32" class="stat-value">32</text>
+      <text x="12" y="32" class="stat-value">13</text>
     </g>
     <g transform="translate(260 136)">
       <rect x="0" y="0" width="215" height="40" rx="8" fill="#161b22" stroke="#30363d"/>
       <text x="12" y="16" class="label">Total Issues</text>
-      <text x="12" y="32" class="stat-value">89</text>
+      <text x="12" y="32" class="stat-value">2</text>
     </g>
     <text x="25" y="198" class="section-title">Commit Activity</text>
     <text x="140" y="198" class="label">Last 12 months</text>
@@ -58,34 +58,31 @@
       <line x1="10" y1="16" x2="440" y2="16" stroke="#21262d" stroke-width="1"/>
       <line x1="10" y1="32" x2="440" y2="32" stroke="#21262d" stroke-width="1"/>
       <line x1="10" y1="48" x2="440" y2="48" stroke="#21262d" stroke-width="1"/>
-      <path d="M10 53 L30 53 L50 51 L70 52 L90 51 L110 53 L130 53 L150 49 L165 38 L185 38 L205 38 L220 53 L240 53 L260 53 L280 53 L300 53 L315 46 L330 28 L345 32 L360 45 L375 45 L390 40 L405 37 L420 43 L430 53 L438 35 L444 8 L448 4 L448 58 L10 58 Z" fill="url(#graphGradient)"/>
-      <path d="M10 53 L30 53 L50 51 L70 52 L90 51 L110 53 L130 53 L150 49 L165 38 L185 38 L205 38 L220 53 L240 53 L260 53 L280 53 L300 53 L315 46 L330 28 L345 32 L360 45 L375 45 L390 40 L405 37 L420 43 L430 53 L438 35 L444 8 L448 4" fill="none" stroke="#f85149" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="448" cy="4" r="7" fill="#f85149" opacity="0.10"/>
-      <circle cx="448" cy="4" r="3.5" fill="#f85149"/>
-      <text x="10" y="68" class="date">Oct</text>
-      <text x="90" y="68" class="date">Dec</text>
-      <text x="170" y="68" class="date">Feb</text>
-      <text x="250" y="68" class="date">Apr</text>
-      <text x="330" y="68" class="date">Jun</text>
-      <text x="410" y="68" class="date">Sep</text>
+      <path d="M10.0 58.0 L18.4 58.0 L26.8 58.0 L35.3 58.0 L43.7 58.0 L52.1 58.0 L60.5 58.0 L69.0 58.0 L77.4 58.0 L85.8 58.0 L94.2 58.0 L102.7 58.0 L111.1 57.9 L119.5 57.9 L127.9 58.0 L136.3 58.0 L144.8 58.0 L153.2 58.0 L161.6 57.9 L170.0 58.0 L178.5 57.9 L186.9 57.9 L195.3 58.0 L203.7 58.0 L212.2 57.9 L220.6 58.0 L229.0 58.0 L237.4 58.0 L245.8 58.0 L254.3 58.0 L262.7 58.0 L271.1 58.0 L279.5 58.0 L288.0 58.0 L296.4 58.0 L304.8 57.9 L313.2 58.0 L321.7 58.0 L330.1 58.0 L338.5 58.0 L346.9 58.0 L355.3 58.0 L363.8 58.0 L372.2 58.0 L380.6 58.0 L389.0 58.0 L397.5 58.0 L405.9 58.0 L414.3 58.0 L422.7 57.5 L431.2 57.3 L439.6 8.0 L448.0 39.4 L448.0 58 L10.0 58 Z" fill="url(#graphGradient)"/>
+      <path d="M10.0 58.0 L18.4 58.0 L26.8 58.0 L35.3 58.0 L43.7 58.0 L52.1 58.0 L60.5 58.0 L69.0 58.0 L77.4 58.0 L85.8 58.0 L94.2 58.0 L102.7 58.0 L111.1 57.9 L119.5 57.9 L127.9 58.0 L136.3 58.0 L144.8 58.0 L153.2 58.0 L161.6 57.9 L170.0 58.0 L178.5 57.9 L186.9 57.9 L195.3 58.0 L203.7 58.0 L212.2 57.9 L220.6 58.0 L229.0 58.0 L237.4 58.0 L245.8 58.0 L254.3 58.0 L262.7 58.0 L271.1 58.0 L279.5 58.0 L288.0 58.0 L296.4 58.0 L304.8 57.9 L313.2 58.0 L321.7 58.0 L330.1 58.0 L338.5 58.0 L346.9 58.0 L355.3 58.0 L363.8 58.0 L372.2 58.0 L380.6 58.0 L389.0 58.0 L397.5 58.0 L405.9 58.0 L414.3 58.0 L422.7 57.5 L431.2 57.3 L439.6 8.0 L448.0 39.4" fill="none" stroke="#f85149" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="448.0" cy="39.4" r="7" fill="#f85149" opacity="0.10"/>
+      <circle cx="448.0" cy="39.4" r="3.5" fill="#f85149"/>
+      <text x="10" y="68" class="date">Sep</text><text x="94" y="68" class="date">Nov</text><text x="178" y="68" class="date">Feb</text><text x="263" y="68" class="date">Apr</text><text x="347" y="68" class="date">Jun</text><text x="431" y="68" class="date">Aug</text>
     </g>
     <text x="25" y="302" class="section-title">Most Used Languages</text>
     <g transform="translate(25 311)">
       <g clip-path="url(#languageBarClip)">
-        <rect x="0" y="0" width="189" height="10" fill="#3178c6"/>
-        <rect x="189" y="0" width="135" height="10" fill="#f1e05a"/>
-        <rect x="324" y="0" width="76" height="10" fill="#b07219"/>
-        <rect x="400" y="0" width="50" height="10" fill="#dea584"/>
+        <rect x="0.0" y="0" width="225.0" height="10" fill="#3178c6"/><rect x="225.0" y="0" width="180.0" height="10" fill="#dea584"/><rect x="405.0" y="0" width="36.0" height="10" fill="#f1e05a"/><rect x="441.0" y="0" width="9.0" height="10" fill="#3572A5"/>
       </g>
     </g>
     <g transform="translate(25 335)">
+      <g transform="translate(0 0)">
       <circle cx="4" cy="4" r="3.5" fill="#3178c6"/>
-      <text x="12" y="8" class="language">TypeScript <tspan class="percentage">42%</tspan></text>
-      <circle cx="115" cy="4" r="3.5" fill="#f1e05a"/>
-      <text x="123" y="8" class="language">JavaScript <tspan class="percentage">30%</tspan></text>
-      <circle cx="230" cy="4" r="3.5" fill="#b07219"/>
-      <text x="238" y="8" class="language">Java <tspan class="percentage">17%</tspan></text>
-      <circle cx="330" cy="4" r="3.5" fill="#dea584"/>
-      <text x="338" y="8" class="language">Rust <tspan class="percentage">11%</tspan></text>
+      <text x="12" y="8" class="language">TypeScript <tspan class="percentage">50%</tspan></text>
+    </g><g transform="translate(110 0)">
+      <circle cx="4" cy="4" r="3.5" fill="#dea584"/>
+      <text x="12" y="8" class="language">Rust <tspan class="percentage">40%</tspan></text>
+    </g><g transform="translate(220 0)">
+      <circle cx="4" cy="4" r="3.5" fill="#f1e05a"/>
+      <text x="12" y="8" class="language">JavaScript <tspan class="percentage">8%</tspan></text>
+    </g><g transform="translate(330 0)">
+      <circle cx="4" cy="4" r="3.5" fill="#3572A5"/>
+      <text x="12" y="8" class="language">Python <tspan class="percentage">2%</tspan></text>
+    </g>
     </g>
   </svg>
