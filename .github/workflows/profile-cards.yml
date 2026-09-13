@@ -31,8 +31,7 @@ jobs:
               viewer {
                 followers { totalCount }
                 following { totalCount }
-                publicRepos: repositories(first: 1, privacy: PUBLIC) { totalCount }
-                privateRepos: repositories(first: 1, privacy: PRIVATE) { totalCount }
+                repositories { totalCount }
                 contributionsCollection {
                   contributionCalendar {
                     totalContributions
@@ -60,6 +59,11 @@ jobs:
             let body = "";
             res.on("data", chunk => body += chunk);
             res.on("end", () => {
+              if (res.statusCode !== 200) {
+                console.error("API Request Failed with status code " + res.statusCode, body);
+                process.exit(1);
+              }
+
               try {
                 const response = JSON.parse(body);
                 if (response.errors) {
@@ -67,15 +71,20 @@ jobs:
                   process.exit(1);
                 }
 
+                if (!response.data || !response.data.viewer) {
+                  console.error("Invalid response payload:", body);
+                  process.exit(1);
+                }
+
                 const viewer = response.data.viewer;
                 const totalCommits = viewer.contributionsCollection.contributionCalendar.totalContributions;
-                const totalRepos = (viewer.publicRepos.totalCount || 0) + (viewer.privateRepos.totalCount || 0);
+                const totalRepos = viewer.repositories.totalCount;
                 const followers = viewer.followers.totalCount;
                 const following = viewer.following.totalCount;
                 
                 fetchRestStats(totalCommits, totalRepos, followers, following);
               } catch (e) {
-                console.error("Parse error:", e);
+                console.error("Parse error:", e, body);
                 process.exit(1);
               }
             });
